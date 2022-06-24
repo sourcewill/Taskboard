@@ -1,0 +1,37 @@
+.new-task{
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    width: 400px;
+
+    input{
+        height: 32px;
+        border-radius: 16px 0 0 16px;
+        border: unset;
+        outline: none;
+        padding-left: 16px;
+        background-color: rgba(255, 255, 255, 0.9);
+    }
+
+    .add{
+        cursor: pointer;
+        height: 32px;
+        border-radius: 0 16px 16px 0;
+        border: unset;
+        outline: unset;
+        background-color: #0BA3F8;
+        color: var(--text-1);
+        font-size: 12px;
+
+        .pi{
+            font-size: 14px;
+            font-weight: 400;
+
+        }
+
+        &:hover{
+            background-color: #0f8fda;
+            box-shadow: inset 2px 2px 4px rgb(0 0 0 / 20%);
+
+        }
+    }
+}

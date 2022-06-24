@@ -1,5 +1,8 @@
-<div class="dashboard-container">
-    <div class="title">FasTo Do</div>
-    <app-new-task></app-new-task>
-    <app-task-list></app-task-list>
+<div class="dashboard-container" fxLayout="column">
+    <div class="title" fxFlexAlign="center">FasTo Do</div>
+    <app-new-task fxFlexAlign="center"></app-new-task>
+    <div style="width: 600px; margin-top: 16px" fxFlexAlign="center">
+        <div>Tasks</div>
+        <app-task-list></app-task-list>
+    </div>
 </div>

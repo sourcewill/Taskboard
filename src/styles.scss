@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import '../node_modules/primeicons/primeicons.css';
+
+:root {
+    --main-1: #e6b120;
+    --main-2: ;
+    --main-3: ;
+
+    --blue: #0BA3F8;
+
+    --dark-1: #212529;
+    --dark-2: #343a40;
+    --dark-3: #3d3d3d;
+
+    --font-1: rgba(255, 255, 255, 0.96);
+    --font-2: rgba(255, 255, 255, 0.67);
+    --font-3: rgba(255, 255, 255, 0.45);
+
+  }
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    padding: 0;
+    border: 0;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-1);
+    color: var(--font-1);
+}
