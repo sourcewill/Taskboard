@@ -26,17 +26,17 @@ export class TaskCardComponent implements OnInit {
     return 'To Do';
   }
 
-  get cardColor(): string {
+  get statusColor(): string {
     if(this.task?.status === TaskStatusEnum.IN_PROGRESS){
-      return 'rgba(72, 233, 255, 0.11)';
+      return '#0BA3F8';
     }
     if(this.task?.status === TaskStatusEnum.PAUSED){
-      return 'rgba(255, 216, 91, 0.16)';
+      return '#D28106';
     }
     if(this.task?.status === TaskStatusEnum.DONE){
-      return 'rgba(69, 255, 79, 0.09)';
+      return '#25CD7C';
     }
-    return 'rgba(255, 255, 255, 0.04)';
+    return '#8A9299';
   }
 
   constructor(private dataService: DataService) { }

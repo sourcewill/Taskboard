@@ -13,14 +13,14 @@ export const initialState: IDataSatate = {
     taskList: [
         {
             id: 1,
-            title: 'Teste',
-            status: TaskStatusEnum.TODO,
+            title: 'Initial task example completed',
+            status: TaskStatusEnum.DONE,
             childs: [],
         },
         {
             id: 2,
-            title: 'Teste 2',
-            status: TaskStatusEnum.TODO,
+            title: 'Task example in progress',
+            status: TaskStatusEnum.IN_PROGRESS,
             childs: [],
         }
     ],

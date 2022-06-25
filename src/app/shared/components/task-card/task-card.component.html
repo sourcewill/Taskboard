@@ -1,18 +1,22 @@
-<div class="task-card" fxLayout="row" fxLayoutAlign="space-between center" [style.backgroundColor]="cardColor">
-    <div fxLayout="row" fxLayoutGap="4px" fxLayoutAlign="start center">
+
+<div class="task-card" fxLayout="row" fxLayoutAlign="space-between center">
+    <div class="status-color" [style.backgroundColor]="statusColor"></div>
+    <div class="title">{{task?.title}}</div>
+    <div fxLayout="row" fxLayoutGap="8px">
         <div class="dropdown-status">
+
             <div class="selected-status" (click)="onClickStatus()">{{this.selectedStatus}}</div>
+            
             <div class="dropdown-options" [ngClass]="{active: isDropdownActive}" fxLayout="column">
-                <div class="option" (click)="onChangeStatus(taskStatusEnum.TODO)">TO DO</div>
+                <div class="option" (click)="onChangeStatus(taskStatusEnum.TODO)">To Do</div>
                 <div class="option" (click)="onChangeStatus(taskStatusEnum.IN_PROGRESS)">In Progress</div>
                 <div class="option" (click)="onChangeStatus(taskStatusEnum.PAUSED)">Paused</div>
                 <div class="option" (click)="onChangeStatus(taskStatusEnum.DONE)">Done</div>
             </div>
         </div>
-        <div class="title">{{task?.title}}</div>
+        <div>
+            <i class="pi pi-ellipsis-v"></i>
+        </div>
     </div>
-    <div fxLayout="row" fxLayoutGap="4px">
-        <div>Delete</div>
-        <div>Edit</div>
-    </div>
+
 </div>
