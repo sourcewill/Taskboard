@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { Task, ITaskSatatus } from '../../models/task.model';
+import { Task, TaskStatusEnum } from '../../models/task.model';
 import { addNewTask, setTaskList } from '../actions/data.actions';
 
 
@@ -12,13 +12,15 @@ export interface IDataSatate {
 export const initialState: IDataSatate = {
     taskList: [
         {
+            id: 1,
             title: 'Teste',
-            status: ITaskSatatus.TODO,
+            status: TaskStatusEnum.TODO,
             childs: [],
         },
         {
+            id: 2,
             title: 'Teste 2',
-            status: ITaskSatatus.TODO,
+            status: TaskStatusEnum.TODO,
             childs: [],
         }
     ],

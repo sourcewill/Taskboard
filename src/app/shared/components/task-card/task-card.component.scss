@@ -1,6 +1,5 @@
 .task-card{
     padding: 8px 16px;
-    background-color: rgba(255, 255, 255, 0.04);
     border-radius: 8px;
     
     &:hover{
@@ -10,4 +9,44 @@
     .title{
         font-size: 14px;
     }
+
+    .dropdown-status{
+        cursor: pointer;
+        background-color: rgba(255, 255, 255, 0.1);
+        padding: 4px;
+        border-radius: 4px;
+        width: 80px;
+        text-align: center;
+        position: relative;
+        font-size: 12px;
+        user-select: none;
+    }
+
+    .dropdown-options{
+        visibility: hidden;
+        position: absolute; 
+        top: 30px;
+        left: 0px;
+        width: 80px;
+        border-radius: 4px;
+        overflow: hidden;
+        backdrop-filter: blur(10px);
+
+        &.active{
+            visibility: visible;
+            z-index: 10;
+        }
+    }
+
+    .option{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 24px;
+        background-color: rgba(255, 255, 255, 0.1);
+        &:hover{
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+    }
+    
 }

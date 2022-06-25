@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { Task, ITaskSatatus } from '../../models/task.model';
+import { Task, TaskStatusEnum } from '../../models/task.model';
+import { DataService } from '../../service/data.service';
 import { addNewTask } from '../../store/actions/data.actions';
 
 @Component({
@@ -10,7 +11,7 @@ import { addNewTask } from '../../store/actions/data.actions';
 })
 export class NewTaskComponent implements OnInit {
 
-  constructor(private store: Store) { }
+  constructor(private store: Store, private dataService: DataService) { }
 
   ngOnInit(): void {
   }
@@ -18,8 +19,7 @@ export class NewTaskComponent implements OnInit {
   taskTitle: string = '';
 
   onClickAddTask(){
-    let newTask: Task = new Task(this.taskTitle);
-    this.store.dispatch(addNewTask({payload: newTask}));
+    this.dataService.createNewTask(this.taskTitle);
     this.taskTitle = '';
   }
 }

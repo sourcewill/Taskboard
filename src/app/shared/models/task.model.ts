@@ -1,4 +1,4 @@
-export enum ITaskSatatus{
+export enum TaskStatusEnum{
     TODO,
     IN_PROGRESS,
     PAUSED,
@@ -7,17 +7,19 @@ export enum ITaskSatatus{
 
 export interface ITaskChild{
     title: string;
-    status: ITaskSatatus;
+    status: TaskStatusEnum;
 }
 
 export class Task{
+    id: number;
     title: string;
-    status: ITaskSatatus;
+    status: TaskStatusEnum;
     childs: ITaskChild[];
 
     constructor(title: string = 'Untitled'){
+        this.id = -1;
         this.title = title;
-        this.status = ITaskSatatus.TODO;
+        this.status = TaskStatusEnum.TODO;
         this.childs = [];
     }
 }
