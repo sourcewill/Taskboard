@@ -10,20 +10,22 @@ import { selectTaskList } from "../store/selectors/data.selectors";
 export class DataService{
 
     taskList: Task[] = [];
-    taskCounter: number = 0;
+    newId: number = 0;
 
     constructor(private store: Store){
         this.store.select(selectTaskList).subscribe(data => {
             if(data){
                 this.taskList = [...data];
-                this.taskCounter = data.length;
+                if(data.length){
+                    this.newId = data[data.length-1].id + 1;
+                }
             }
         });
      }
 
     createNewTask(title: string){
         let newTask: Task = new Task(title);
-        newTask.id = this.taskCounter + 1;
+        newTask.id = this.newId;
         this.store.dispatch(addNewTask({payload: newTask}));
     }
 
@@ -34,6 +36,11 @@ export class DataService{
             }
             return task;
         });
+        this.store.dispatch(setTaskList({payload: updatedTaskList}));
+    }
+
+    deleteTask(taskId: number){
+        let updatedTaskList: Task[] = this.taskList.filter(task => (task.id !== taskId));
         this.store.dispatch(setTaskList({payload: updatedTaskList}));
     }
 

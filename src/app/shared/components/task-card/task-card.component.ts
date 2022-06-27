@@ -12,6 +12,7 @@ export class TaskCardComponent implements OnInit {
   @Input() task?: Task;
 
   isDropdownActive: boolean = false; 
+  isConfirmDeleteActive: boolean = false;
 
   get selectedStatus(): string {
     if(this.task?.status === TaskStatusEnum.IN_PROGRESS){
@@ -50,12 +51,27 @@ export class TaskCardComponent implements OnInit {
     this.isDropdownActive = !this.isDropdownActive;
   }
 
-  onChangeStatus(status: TaskStatusEnum){
+  onClickDelete(){
+    this.isConfirmDeleteActive = !this.isConfirmDeleteActive;
+  }
+
+  onConfirmDelete(){
     if(this.task){
-      let editedTask = {...this.task, status: status};
+      this.dataService.deleteTask(this.task.id);
+    }
+  }
+
+  onChangeStatus(status: TaskStatusEnum){
+    this.updateTaskField('status', status);
+    this.isDropdownActive = !this.isDropdownActive;
+  }
+
+
+  updateTaskField(updatedField: string, value: any){
+    if(this.task){
+      let editedTask = {...this.task, [updatedField]: value};
       this.dataService.updateTask(editedTask);
     }
-    this.isDropdownActive = !this.isDropdownActive;
-  } 
+  }
 
 }

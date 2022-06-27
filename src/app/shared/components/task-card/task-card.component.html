@@ -1,22 +1,62 @@
+<div
+  class="task-card"
+  fxLayout="row"
+  fxLayoutAlign="space-between center"
+  fxLayoutGap="16px"
+>
+  <div class="status-color" [style.backgroundColor]="statusColor"></div>
+  <input
+    #inputTitle
+    class="title"
+    type="text"
+    [value]="task?.title"
+    spellcheck="false"
+    (blur)="updateTaskField('title', inputTitle.value)"
+    (keyup.enter)="updateTaskField('title', inputTitle.value)"
+  />
+  <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="start center">
+    <div class="dropdown-status">
+      <div class="selected-status" (click)="onClickStatus()">
+        {{ this.selectedStatus }}
+      </div>
 
-<div class="task-card" fxLayout="row" fxLayoutAlign="space-between center">
-    <div class="status-color" [style.backgroundColor]="statusColor"></div>
-    <div class="title">{{task?.title}}</div>
-    <div fxLayout="row" fxLayoutGap="8px">
-        <div class="dropdown-status">
-
-            <div class="selected-status" (click)="onClickStatus()">{{this.selectedStatus}}</div>
-            
-            <div class="dropdown-options" [ngClass]="{active: isDropdownActive}" fxLayout="column">
-                <div class="option" (click)="onChangeStatus(taskStatusEnum.TODO)">To Do</div>
-                <div class="option" (click)="onChangeStatus(taskStatusEnum.IN_PROGRESS)">In Progress</div>
-                <div class="option" (click)="onChangeStatus(taskStatusEnum.PAUSED)">Paused</div>
-                <div class="option" (click)="onChangeStatus(taskStatusEnum.DONE)">Done</div>
-            </div>
+      <div
+        class="dropdown-options"
+        [ngClass]="{ active: isDropdownActive }"
+        fxLayout="column"
+      >
+        <div class="option" (click)="onChangeStatus(taskStatusEnum.TODO)">
+          To Do
         </div>
-        <div>
-            <i class="pi pi-ellipsis-v"></i>
+        <div
+          class="option"
+          (click)="onChangeStatus(taskStatusEnum.IN_PROGRESS)"
+        >
+          In Progress
         </div>
+        <div class="option" (click)="onChangeStatus(taskStatusEnum.PAUSED)">
+          Paused
+        </div>
+        <div class="option" (click)="onChangeStatus(taskStatusEnum.DONE)">
+          Done
+        </div>
+      </div>
     </div>
-
+    <div
+      class="delete-task"
+      (click)="onClickDelete()"
+      [ngClass]="{ active: isConfirmDeleteActive }"
+      fxLayout="row"
+      fxLayoutAlign="center center"
+      fxLayoutGap="16px"
+    >
+      <i class="pi pi-trash" *ngIf="!isConfirmDeleteActive"></i>
+      <i
+        class="pi pi-check"
+        *ngIf="isConfirmDeleteActive"
+        (click)="onConfirmDelete()"
+      ></i>
+      <i class="pi pi-times" *ngIf="isConfirmDeleteActive"></i>
+    </div>
+  </div>
 </div>

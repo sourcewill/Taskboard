@@ -2,7 +2,7 @@
 .task-card{
     position: relative;
     border-radius: 8px;
-    padding: 8px 16px 8px 24px;
+    padding: 8px 16px 8px 16px;
     background-color: rgba(255, 255, 255, 0.08);
 
     &:hover{
@@ -20,8 +20,30 @@
 }
 
 .title{
+    cursor: default;
+    caret-color: #0BA3F8;
+    width: 100%;
+    height: 24px;
+    border-radius: 4px;
     font-size: 14px;
     font-weight: 300;
+    background-color: transparent;
+    border: unset;
+    color: var(--text-1);
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: rgba(255, 255, 255, 0);
+    transition: all ease 0.2s;
+    padding: 0 8px;
+
+    &:hover{
+        background-color: rgba(255, 255, 255, 0.03);
+    }
+    
+    &:focus{
+        background-color: rgba(255, 255, 255, 0.03);
+        outline-color: rgba(255, 255, 255, 0.1);
+    }
 }
 
 .dropdown-status{
@@ -30,7 +52,7 @@
     padding: 4px;
     border-radius: 4px;
     width: 80px;
-
+    height: 24px;
     position: relative;
     font-size: 12px;
     font-weight: 500;
@@ -38,7 +60,6 @@
 }
 
 .selected-status{
-    width: 100%;
     text-align: center;
 }
 
@@ -47,7 +68,7 @@
     position: absolute; 
     top: 30px;
     left: 0px;
-    width: 80px;
+    width: 100%;
     border-radius: 4px;
     overflow: hidden;
     backdrop-filter: blur(10px);
@@ -67,4 +88,44 @@
     &:hover{
         background-color: rgba(255, 255, 255, 0.2);
     }
+}
+
+.delete-task{
+    cursor: pointer;
+    height: 32px;
+    width: 32px;
+    transition: all ease 0.2s;
+    border-radius: 16px;
+    .pi{
+        font-size: 14px;
+        color: #bbb6b7;
+    }
+
+    &:hover{
+        background-color: rgba(255, 255, 255, 0.05);
+        .pi-trash{
+            color: #E9466B;
+        }
+    }
+
+    .pi-check{
+        height: 32px;
+        display: flex;
+        align-items: center;
+        &:hover{
+            color: #25CD7C;
+        }
+    }
+    .pi-times{
+        height: 32px;
+        display: flex;
+        align-items: center;
+        &:hover{
+            color: #E9466B;
+        }
+    }
+}
+
+.delete-task.active{
+    width: 64px;
 }
