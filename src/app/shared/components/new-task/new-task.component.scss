@@ -18,7 +18,7 @@
         border-radius: 0 16px 16px 0;
         border: unset;
         outline: unset;
-        background-color: #0BA3F8;
+        background-color: var(--blue);
         color: var(--text-1);
         font-size: 12px;
 
@@ -29,7 +29,7 @@
         }
 
         &:hover{
-            background-color: #0f8fda;
+            background-color: var(--blue);
             box-shadow: inset 2px 2px 4px rgb(0 0 0 / 20%);
 
         }

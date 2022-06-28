@@ -21,12 +21,12 @@
 
 .title{
     cursor: default;
-    caret-color: #0BA3F8;
+    caret-color: var(--blue);
     width: 100%;
     height: 24px;
     border-radius: 4px;
     font-size: 14px;
-    font-weight: 300;
+    font-weight: 600;
     background-color: transparent;
     border: unset;
     color: var(--text-1);
@@ -51,12 +51,13 @@
     background-color: rgba(255, 255, 255, 0.1);
     padding: 4px;
     border-radius: 4px;
-    width: 80px;
+    min-width: 80px;
     height: 24px;
     position: relative;
     font-size: 12px;
     font-weight: 500;
     user-select: none;
+    white-space: nowrap;
 }
 
 .selected-status{
@@ -66,14 +67,18 @@
 .dropdown-options{
     visibility: hidden;
     position: absolute; 
+    overflow: hidden;
     top: 30px;
     left: 0px;
     width: 100%;
+    height: 0px;
     border-radius: 4px;
     overflow: hidden;
     backdrop-filter: blur(10px);
-
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    transition: all ease 0.3s;
     &.active{
+        height: 96px;
         visibility: visible;
         z-index: 10;
     }
@@ -98,13 +103,13 @@
     border-radius: 16px;
     .pi{
         font-size: 14px;
-        color: #bbb6b7;
+        color: var(--text-2);
     }
 
     &:hover{
         background-color: rgba(255, 255, 255, 0.05);
         .pi-trash{
-            color: #E9466B;
+            color: var(--red);
         }
     }
 
@@ -113,7 +118,7 @@
         display: flex;
         align-items: center;
         &:hover{
-            color: #25CD7C;
+            color: var(--green);
         }
     }
     .pi-times{
@@ -121,11 +126,69 @@
         display: flex;
         align-items: center;
         &:hover{
-            color: #E9466B;
+            color: var(--red);
         }
+    }
+
+    .delete-text{
+        font-size: 12px;
+        font-weight: 600;
+        color: var(--text-1);
     }
 }
 
 .delete-task.active{
-    width: 64px;
+    width: 120px;
+}
+
+.description{
+    resize: none;
+    cursor: default;
+    caret-color: var(--blue);
+    width: 100%;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 18px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border: unset;
+    color: var(--text-2);
+    outline-width: 1px;
+    outline-style: solid;
+    outline-color: rgba(255, 255, 255, 0);
+    transition: all ease 0.2s;
+    padding: 4px 8px 0px 8px;
+
+    &:hover{
+        background-color: rgba(255, 255, 255, 0.03);
+    }
+    
+    &:focus{
+        background-color: rgba(255, 255, 255, 0.03);
+        outline-color: rgba(255, 255, 255, 0.1);
+    }
+}
+
+.add-subtask{
+    cursor: pointer;
+    height: 24px;
+    width: fit-content;
+    padding: 8px;
+    background-color: rgba(255, 255, 255, 0.02);
+    border-radius: 8px;
+
+    .pi{
+        font-size: 12px;
+        color: var(--text-1);
+    }
+
+    .literal{
+        white-space: nowrap;
+        font-size: 12px;
+        color: var(--text-2);
+    }
+    
+    &:hover{
+        background-color: rgba(255, 255, 255, 0.05);
+    }
 }

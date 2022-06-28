@@ -5,21 +5,24 @@ export enum TaskStatusEnum{
     DONE,
 }
 
-export interface ITaskChild{
+export interface ISubtask{
+    id: number;
     title: string;
-    status: TaskStatusEnum;
+    isDone: boolean;
 }
 
 export class Task{
     id: number;
     title: string;
     status: TaskStatusEnum;
-    childs: ITaskChild[];
+    subtasksList: ISubtask[];
+    description: string;
 
     constructor(title: string = 'Untitled'){
         this.id = -1;
         this.title = title;
         this.status = TaskStatusEnum.TODO;
-        this.childs = [];
+        this.subtasksList = [];
+        this.description = 'Description.'
     }
 }

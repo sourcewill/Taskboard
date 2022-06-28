@@ -1,5 +1,5 @@
 {
-  "name": "fastodo",
+  "name": "taskboard",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -23,6 +23,7 @@
     "@ngrx/store": "^13.0.2",
     "@ngrx/store-devtools": "^13.0.2",
     "echarts": "^5.3.1",
+    "ngx-autosize": "^1.8.7",
     "ngx-echarts": "^8.0.1",
     "ngx-mask": "^13.1.1",
     "primeicons": "^5.0.0",

@@ -4,4 +4,9 @@
 
 .title{
     font-size: 30px;
+    font-weight: 200;
+    span{
+        color: var(--blue);
+        font-weight: 300;
+    }
 }

@@ -12,6 +12,8 @@ import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
 import { dataReducer } from './shared/store/reducers/data.reducer';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AutosizeModule} from 'ngx-autosize';
+import { SubtaskCardComponent } from './shared/components/subtask-card/subtask-card.component';
 
 
 
@@ -21,7 +23,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     DashboardComponent,
     NewTaskComponent,
     TaskListComponent,
-    TaskCardComponent
+    TaskCardComponent,
+    SubtaskCardComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     FlexLayoutModule,
     FormsModule,
+    AutosizeModule,
     StoreModule.forRoot({ data: dataReducer }),
   ],
   providers: [],
