@@ -12,11 +12,12 @@
     />
     <div fxLayout="row" fxLayoutGap="8px" fxLayoutAlign="start center">
       <div class="dropdown-status">
-        <div class="selected-status" (click)="onClickStatus()">
+        <div class="selected-status" (click)="openOptionsOverlay()">
           {{ this.selectedStatus }}
         </div>
 
         <div
+          #optionsoverlay
           class="dropdown-options"
           [ngClass]="{ active: isDropdownActive }"
           fxLayout="column"

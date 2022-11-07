@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { TaskStatusEnum as TaskStatusEnum, Task } from '../../models/task.model';
 import { DataService } from '../../service/data.service';
 
@@ -10,6 +10,8 @@ import { DataService } from '../../service/data.service';
 export class TaskCardComponent implements OnInit {
 
   @Input() task?: Task;
+
+  @ViewChild('optionsoverlay') optionsOverlayRef: any;
 
   isDropdownActive: boolean = false; 
   isConfirmDeleteActive: boolean = false;
@@ -45,11 +47,21 @@ export class TaskCardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  taskStatusEnum = TaskStatusEnum;
-
-  onClickStatus(){
-    this.isDropdownActive = !this.isDropdownActive;
+  @HostListener('document:click', ['$event'])
+  onClick(event: any) {
+    if(event?.target?.className === 'selected-status') return;
+    this.closeOptionsOverlay();
   }
+
+  openOptionsOverlay(){
+    this.isDropdownActive = true;
+  }
+
+  closeOptionsOverlay(){
+    this.isDropdownActive = false;
+  }
+
+  taskStatusEnum = TaskStatusEnum;
 
   onClickDelete(){
     this.isConfirmDeleteActive = !this.isConfirmDeleteActive;
