@@ -1,12 +1,22 @@
-.dashboard-container{
-    margin: 16px;
+.dashboard-container {
+  margin: 16px;
 }
 
-.title{
-    font-size: 30px;
-    font-weight: 200;
-    span{
-        color: var(--blue);
-        font-weight: 300;
-    }
+.title {
+  font-size: 30px;
+  font-weight: 200;
+  span {
+    color: var(--blue);
+    font-weight: 300;
+  }
+}
+
+.tasks-area {
+  width: 600px;
+}
+
+@media (max-width: 650px) {
+  .tasks-area {
+    width: 100%;
+  }
 }

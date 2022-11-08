@@ -1,203 +1,202 @@
+.task-card {
+  position: relative;
+  border-radius: 8px;
+  padding: 8px 16px 8px 16px;
+  background-color: rgba(255, 255, 255, 0.08);
 
-.task-card{
-    position: relative;
-    border-radius: 8px;
-    padding: 8px 16px 8px 16px;
-    background-color: rgba(255, 255, 255, 0.08);
-
-    &:hover{
-        background-color: rgba(255, 255, 255, 0.1);
-    }
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+  }
 }
 
-.status-color{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 8px;
-    height: 100%;
-    border-radius: 8px 0 0 8px;
+.status-color {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 100%;
+  border-radius: 8px 0 0 8px;
 }
 
-.title{
-    cursor: default;
-    caret-color: var(--blue);
-    width: 100%;
-    height: 24px;
-    border-radius: 4px;
+.title {
+  cursor: default;
+  caret-color: var(--blue);
+  width: 100%;
+  height: 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  background-color: transparent;
+  border: unset;
+  color: var(--text-1);
+  outline-width: 1px;
+  outline-style: solid;
+  outline-color: rgba(255, 255, 255, 0);
+  transition: all ease 0.2s;
+  padding: 0 8px;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.03);
+    outline-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.dropdown-status {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 4px;
+  border-radius: 4px;
+  min-width: 80px;
+  height: 24px;
+  position: relative;
+  font-size: 12px;
+  font-weight: 500;
+  user-select: none;
+  white-space: nowrap;
+}
+
+.selected-status {
+  text-align: center;
+}
+
+.dropdown-options {
+  position: absolute;
+  overflow: hidden;
+  top: 30px;
+  left: 0px;
+  width: 100%;
+  height: 0px;
+  border-radius: 4px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  transition: all ease 0.3s;
+  z-index: 10;
+  &.active {
+    animation: active-dropdown 0.3s ease both;
+  }
+}
+
+@keyframes active-dropdown {
+  0% {
+    height: 0;
+    opacity: 1;
+  }
+  100% {
+    height: 96px;
+    opacity: 1;
+  }
+}
+
+.option {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 24px;
+  background-color: rgba(255, 255, 255, 0.1);
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.delete-task {
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+  transition: all ease 0.2s;
+  border-radius: 16px;
+  .pi {
     font-size: 14px;
-    font-weight: 600;
-    background-color: transparent;
-    border: unset;
-    color: var(--text-1);
-    outline-width: 1px;
-    outline-style: solid;
-    outline-color: rgba(255, 255, 255, 0);
-    transition: all ease 0.2s;
-    padding: 0 8px;
-
-    &:hover{
-        background-color: rgba(255, 255, 255, 0.03);
-    }
-    
-    &:focus{
-        background-color: rgba(255, 255, 255, 0.03);
-        outline-color: rgba(255, 255, 255, 0.1);
-    }
-}
-
-.dropdown-status{
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 4px;
-    border-radius: 4px;
-    min-width: 80px;
-    height: 24px;
-    position: relative;
-    font-size: 12px;
-    font-weight: 500;
-    user-select: none;
-    white-space: nowrap;
-}
-
-.selected-status{
-    text-align: center;
-}
-
-.dropdown-options{
-    position: absolute; 
-    overflow: hidden;
-    top: 30px;
-    left: 0px;
-    width: 100%;
-    height: 0px;
-    border-radius: 4px;
-    overflow: hidden;
-    backdrop-filter: blur(10px);
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
-    transition: all ease 0.3s;
-    z-index: 10;
-    &.active{
-        animation: active-dropdown 0.3s ease both;
-    }
-}
-
-@keyframes active-dropdown{
-    0%{
-        height: 0;
-        opacity: 1;
-    }
-    100%{
-        height: 96px;
-        opacity: 1;
-    }
-}
-
-.option{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 24px;
-    background-color: rgba(255, 255, 255, 0.1);
-    &:hover{
-        background-color: rgba(255, 255, 255, 0.2);
-    }
-}
-
-.delete-task{
-    cursor: pointer;
-    height: 32px;
-    width: 32px;
-    transition: all ease 0.2s;
-    border-radius: 16px;
-    .pi{
-        font-size: 14px;
-        color: var(--text-2);
-    }
-
-    &:hover{
-        background-color: rgba(255, 255, 255, 0.05);
-        .pi-trash{
-            color: var(--red);
-        }
-    }
-
-    .pi-check{
-        height: 32px;
-        display: flex;
-        align-items: center;
-        &:hover{
-            color: var(--green);
-        }
-    }
-    .pi-times{
-        height: 32px;
-        display: flex;
-        align-items: center;
-        &:hover{
-            color: var(--red);
-        }
-    }
-
-    .delete-text{
-        font-size: 12px;
-        font-weight: 600;
-        color: var(--text-1);
-    }
-}
-
-.delete-task.active{
-    width: 120px;
-}
-
-.description{
-    resize: none;
-    cursor: default;
-    caret-color: var(--blue);
-    width: 100%;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 300;
-    line-height: 18px;
-    background-color: rgba(0, 0, 0, 0.1);
-    border: unset;
     color: var(--text-2);
-    outline-width: 1px;
-    outline-style: solid;
-    outline-color: rgba(255, 255, 255, 0);
-    transition: all ease 0.2s;
-    padding: 4px 8px 0px 8px;
+  }
 
-    &:hover{
-        background-color: rgba(255, 255, 255, 0.03);
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    .pi-trash {
+      color: var(--red);
     }
-    
-    &:focus{
-        background-color: rgba(255, 255, 255, 0.03);
-        outline-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .pi-check {
+    height: 32px;
+    display: flex;
+    align-items: center;
+    &:hover {
+      color: var(--green);
     }
+  }
+  .pi-times {
+    height: 32px;
+    display: flex;
+    align-items: center;
+    &:hover {
+      color: var(--red);
+    }
+  }
+
+  .delete-text {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-1);
+  }
 }
 
-.add-subtask{
-    cursor: pointer;
-    height: 24px;
-    width: fit-content;
-    padding: 8px;
-    background-color: rgba(255, 255, 255, 0.02);
-    border-radius: 8px;
+.delete-task.active {
+  width: 120px;
+}
 
-    .pi{
-        font-size: 12px;
-        color: var(--text-1);
-    }
+.description {
+  resize: none;
+  cursor: default;
+  caret-color: var(--blue);
+  width: 100%;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 300;
+  line-height: 18px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: unset;
+  color: var(--text-2);
+  outline-width: 1px;
+  outline-style: solid;
+  outline-color: rgba(255, 255, 255, 0);
+  transition: all ease 0.2s;
+  padding: 4px 8px 0px 8px;
 
-    .literal{
-        white-space: nowrap;
-        font-size: 12px;
-        color: var(--text-2);
-    }
-    
-    &:hover{
-        background-color: rgba(255, 255, 255, 0.05);
-    }
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.03);
+  }
+
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.03);
+    outline-color: rgba(255, 255, 255, 0.1);
+  }
+}
+
+.add-subtask {
+  cursor: pointer;
+  height: 24px;
+  width: fit-content;
+  padding: 8px;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+
+  .pi {
+    font-size: 12px;
+    color: var(--text-1);
+  }
+
+  .literal {
+    white-space: nowrap;
+    font-size: 12px;
+    color: var(--text-2);
+  }
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
 }
