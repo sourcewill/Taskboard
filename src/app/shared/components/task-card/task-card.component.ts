@@ -1,5 +1,5 @@
 import { Component, HostListener, Input, OnInit, ViewChild } from '@angular/core';
-import { TaskStatusEnum as TaskStatusEnum, Task } from '../../models/task.model';
+import { TaskStatusEnum as TaskStatusEnum, Task, TaskStatusColor } from '../../models/task.model';
 import { DataService } from '../../service/data.service';
 
 @Component({
@@ -16,26 +16,15 @@ export class TaskCardComponent implements OnInit {
   isDropdownActive: boolean = false;
   isConfirmDeleteActive: boolean = false;
 
-  get selectedStatus(): string {
-    if (!this.task?.status) return 'Error';
-    let adapter = {
-      [TaskStatusEnum.TODO]: 'To Do',
-      [TaskStatusEnum.IN_PROGRESS]: 'In Progress',
-      [TaskStatusEnum.PAUSED]: 'Paused',
-      [TaskStatusEnum.DONE]: 'Done',
-    }
-    return adapter[this.task?.status] ?? 'Error';
-  }
-
   get statusColor(): string {
-    if (!this.task?.status) return '#8A9299';
+    if (!this.task?.status) return TaskStatusColor.TODO;
     let adapter = {
-      [TaskStatusEnum.TODO]: '#8A9299',
-      [TaskStatusEnum.IN_PROGRESS]: '#0BA3F8',
-      [TaskStatusEnum.PAUSED]: '#D28106',
-      [TaskStatusEnum.DONE]: '#25CD7C',
+      [TaskStatusEnum.TODO]: TaskStatusColor.TODO,
+      [TaskStatusEnum.IN_PROGRESS]: TaskStatusColor.IN_PROGRESS,
+      [TaskStatusEnum.PAUSED]: TaskStatusColor.PAUSED,
+      [TaskStatusEnum.DONE]: TaskStatusColor.DONE,
     }
-    return adapter[this.task?.status] ?? '#8A9299';
+    return adapter[this.task?.status] ?? TaskStatusColor.TODO;
   }
 
   constructor(private dataService: DataService) { }
