@@ -1,14 +1,23 @@
-import { Component, HostListener, Input, OnInit, ViewChild } from '@angular/core';
-import { TaskStatusEnum as TaskStatusEnum, Task, TaskStatusColor } from '../../models/task.model';
+import {
+  Component,
+  HostListener,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import {
+  TaskStatusEnum as TaskStatusEnum,
+  Task,
+  TaskStatusColor,
+} from '../../models/task.model';
 import { DataService } from '../../service/data.service';
 
 @Component({
   selector: 'app-task-card',
   templateUrl: './task-card.component.html',
-  styleUrls: ['./task-card.component.scss']
+  styleUrls: ['./task-card.component.scss'],
 })
 export class TaskCardComponent implements OnInit {
-
   @Input() task?: Task;
 
   @ViewChild('optionsoverlay') optionsOverlayRef: any;
@@ -23,14 +32,13 @@ export class TaskCardComponent implements OnInit {
       [TaskStatusEnum.IN_PROGRESS]: TaskStatusColor.IN_PROGRESS,
       [TaskStatusEnum.PAUSED]: TaskStatusColor.PAUSED,
       [TaskStatusEnum.DONE]: TaskStatusColor.DONE,
-    }
+    };
     return adapter[this.task?.status] ?? TaskStatusColor.TODO;
   }
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   @HostListener('document:click', ['$event'])
   onClick(event: any) {
@@ -38,8 +46,8 @@ export class TaskCardComponent implements OnInit {
     this.closeOptionsOverlay();
   }
 
-  openOptionsOverlay() {
-    this.isDropdownActive = true;
+  toggleOptionsOverlay() {
+    this.isDropdownActive = !this.isDropdownActive;
   }
 
   closeOptionsOverlay() {
@@ -63,12 +71,10 @@ export class TaskCardComponent implements OnInit {
     this.isDropdownActive = !this.isDropdownActive;
   }
 
-
   updateTaskField(updatedField: string, value: any) {
     if (this.task) {
       let editedTask = { ...this.task, [updatedField]: value };
       this.dataService.updateTask(editedTask);
     }
   }
-
 }

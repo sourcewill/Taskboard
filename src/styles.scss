@@ -1,47 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
-@import '../node_modules/primeicons/primeicons.css';
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import "../node_modules/primeicons/primeicons.css";
 
 :root {
+  --dark-1: #212529;
+  --dark-2: #343a40;
+  --dark-3: #3d3d3d;
 
-    --dark-1: #212529;
-    --dark-2: #343a40;
-    --dark-3: #3d3d3d;
+  --text-1: rgba(255, 255, 255, 0.97);
+  --text-2: rgba(255, 255, 255, 0.67);
+  --text-3: rgba(255, 255, 255, 0.45);
 
-    --text-1: rgba(255, 255, 255, 0.97);
-    --text-2: rgba(255, 255, 255, 0.67);
-    --text-3: rgba(255, 255, 255, 0.45);
-
-    --grey: #8A9299;
-    --blue: #0BA3F8;
-    --yellow: #D28106;
-    --green: #25CD7C;
-    --red: #E9466B;
-    --light-blue: #00BBD8;
-
-  }
-
-*{
-    box-sizing: border-box;
+  --grey: #8a9299;
+  --blue: #0ba3f8;
+  --yellow: #d28106;
+  --green: #25cd7c;
+  --red: #e9466b;
+  --light-blue: #00bbd8;
 }
 
-body{
-    padding: 0;
-    border: 0;
-    margin: 0;
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-1);
-    background: -webkit-gradient(linear, left top, left bottom, from(#212529), to(#1b1f22)) fixed !important;
+* {
+  box-sizing: border-box;
 }
 
-::-webkit-scrollbar{
-    width: 6px;
+body {
+  padding: 0;
+  border: 0;
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  color: var(--text-1);
+  background: -webkit-gradient(
+      linear,
+      left top,
+      left bottom,
+      from(#212529),
+      to(#1b1f22)
+    )
+    fixed !important;
 }
 
-::-webkit-scrollbar-track{
-    background-color: var(--dark-2);
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-::-webkit-scrollbar-thumb{
-    background-color: var(--grey);
-    border-radius: 4px;
+::-webkit-scrollbar-track {
+  background-color: var(--dark-2);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--grey);
+  border-radius: 4px;
 }

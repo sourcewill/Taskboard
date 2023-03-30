@@ -10,12 +10,10 @@ import { TaskCardComponent } from './shared/components/task-card/task-card.compo
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule } from '@angular/forms';
 import { StoreModule } from '@ngrx/store';
-import { dataReducer } from './shared/store/reducers/data.reducer';
+import { dataReducer } from './shared/redux/reducers/data.reducer';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {AutosizeModule} from 'ngx-autosize';
+import { AutosizeModule } from 'ngx-autosize';
 import { SubtaskCardComponent } from './shared/components/subtask-card/subtask-card.component';
-
-
 
 @NgModule({
   declarations: [
@@ -24,7 +22,7 @@ import { SubtaskCardComponent } from './shared/components/subtask-card/subtask-c
     NewTaskComponent,
     TaskListComponent,
     TaskCardComponent,
-    SubtaskCardComponent
+    SubtaskCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +34,6 @@ import { SubtaskCardComponent } from './shared/components/subtask-card/subtask-c
     StoreModule.forRoot({ data: dataReducer }),
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

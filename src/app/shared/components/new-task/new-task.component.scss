@@ -22,14 +22,17 @@
     outline: unset;
     background-color: var(--blue);
     color: var(--text-1);
-    .pi {
+    i {
       font-size: 14px;
       font-weight: 700;
+      transition: all ease 0.3s;
     }
 
     &:hover {
       background-color: var(--blue);
-      box-shadow: inset 2px 2px 4px rgb(0 0 0 / 20%);
+      i {
+        transform: rotate(90deg);
+      }
     }
   }
 }
